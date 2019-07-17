@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+<title>The Cake Shop | Inventory System</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" media="all" href="styles/960.css" />
+<link rel="stylesheet" type="text/css" media="all" href="styles/reset.css" />
+<link rel="stylesheet" type="text/css" media="all" href="styles/text.css" />
+<link rel="stylesheet" type="text/css" media="all" href="style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="themes/brown/style.css" />
+</h:head>
+<h:body>
+<div id="warp">
+  <div id="main" class="container_16">
+    <div id="header" class="">
+      <div>
+        <h1><a href="index.html">The Cake Shop</a></h1>
+        <h2>Inventory Management</h2>
+      </div>
+      <div id="headright" class="grid_7 prefix_5 omega">
+        
+        
+      </div>
+    </div>
+    <div id="mainMenu" class="grid_16">
+      <ul>
+         <li><a href="index.xhtml">Home</a></li>
+        <li><a href="orders.xhtml" >Make an Order</a></li>
+        <li><a href="suppliers.xhtml" >Supplier</a></li>
+        <li><a href="customers.xhtml" >Customer</a></li>
+        <li><a href="product.xhtml" class="aActive">Product</a></li>
+        <li><a href="aboutus.xhtml">About</a></li>
+        <li><a href="contactus.xhtml">Contact</a></li>
+      </ul>
+    </div>
+    <div id="stickySearch" class="grid_16">
+      <div class="stickyNews grid_12 alpha">
+        <p>Valentine’s BrownieCheese Special Package. <em>Free Delivery.</em> <a href="#" class="bookMan">More &raquo;</a></p>
+      </div>
+      
+    </div>
+    <div class="pageInfo grid_16">
+      <div class="dapurBlog grid_11 alpha">
+        <h3>The Cake Shop Inventory System</h3>
+      </div>
+    </div>
+    <div class="checkout grid_16">
+      <div class="billInfo grid_11 alpha">
+        <h4>2. Make an Order</h4>
+        <a href="#" class="sameInfo">Same with billing info</a>
+        <div>
+            <h2 style="text-align: center; color: green;"><h:outputLabel value="#{productController.mgsError}" id="mgs_erro"/></h2>                                                
+                                                      </div>
+         <h:form>
+             <fieldset>
+                 <label for="oi">Product ID: </label>
+                 <h:inputText value="#{productController.productId}" pt:placeholder="productid" required="true" requiredMessage="You Must Enter The productID" tabindex="2" size="22" class="text" id="oi"/><h:message for="oi" style="color: red"/><br/>
+                 <label for="on">Product Name: </label>
+                                           
+                                  <h:inputText value="#{productController.productName}" pt:placeholder="product Name" required="true" requiredMessage="You Must Enter The productName" tabindex="2" size="22" class="text" id="on"/><h:message for="on" style="color: red"/><br/>
+                                                    <label for="oq">NafDac: </label>
+                                                    <h:inputText value="#{productController.nafdacNumber}" pt:placeholder="nafdac" required="true" requiredMessage="You Must Enter The nacfdacnumber" tabindex="2" size="22" class="text" id="oq"/><h:message for="oq" style="color: red"/><br/>
+                                                    
+                                                    <label for="up">Unit Price : </label>                                  
+                                                    <h:inputText value="#{productController.unitPrice}" pt:placeholder="unitprice" required="true" requiredMessage="You Must Enter The Unit Price" tabindex="2" size="22" class="text" id="up"/><h:message for="up" style="color: red"/><br/>
+                                                    <label for="tp">Quantity: </label>
+                                                     <h:inputText value="#{productController.quantity}" pt:placeholder="quantity" required="true" requiredMessage="You Must Enter The quantity" tabindex="2" size="22" class="text" id="tp"/><h:message for="tp" style="color: red"/><br/>
+                                                    <label for="tp">Made Date </label>
+                                                   
+                                                    <p:calendar  pattern="yyyy-MM-dd" value="#{productController.manufacturedDate}" pt:placeholder="manufacturedDate" required="true" requiredMessage="You Must Enter The made datte" tabindex="2" size="22" class="text" id="tp1"/><h:message for="tp" style="color: red"/><br/>
+                                                 <label for="tp">Expire Date </label>
+                                                 <p:calendar  pattern="yyyy-MM-dd" value="#{productController.expireDate}" pt:placeholder="expiredate" required="true" requiredMessage="You Must Enter The expire date" tabindex="2" size="22" class="text" id="tp2"/><h:message for="tp" style="color: red"/><br/>
+                                                 
+                                                 <label for="save">Save: </label>
+                                                <h:commandButton action="#{productController.saveProduct()}"  tabindex="6" style="color: blue; padding: 10px 22px; background-color: greenyellow; border: 2px solid #4CAF50;"/>
+             </fieldset>
+         </h:form>
+      </div>
+      <div class="summary grid_5 omega">
+        <h4>Summary</h4>
+        <div class="sumWarp">
+          <ul>
+            
+            <li><a href="product.xhtml">Product<span><img src="images/done.png" alt="" /></span></a></li>
+            <li><a href="#" class="billActive">Modify</a></li>
+            <li><a href="#" class="billActive">Get Result</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="richContent2">
+  <div class="container_16">
+    <div class="lastTweet grid_4">
+      <h4>Latest Tweets</h4>
+      <p><a href="#">@someone</a> yes indeed this is one hell of a free css template! <a href="#">Read More</a> <span><em>15 minutes ago</em></span></p>
+      <p><a href="#">@someone</a> yes indeed this is one hell of a free css template! <a href="#">Read More</a> <span><em>15 minutes ago</em></span></p>
+    </div>
+    <div class="corporateInfo grid_4">
+      <h4>Corporate Info</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Term &amp; Conditions</a></li>
+        <li><a href="#">Franchise</a></li>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="storeDelivery grid_4">
+      <h4>Store &amp; Delivery</h4>
+      <ul>
+        <li><a href="#">Store Locator</a></li>
+        <li><a href="#">Delivery Terms &amp;amp Pricing</a></li>
+        <li><a href="#">Delivery Coverage</a></li>
+        <li><a href="#">Gift Services</a></li>
+        <li><a href="#">Track my order</a></li>
+      </ul>
+    </div>
+    <div class="socialNet grid_4">
+      <h4>Keep in touch</h4>
+      <ul>
+        <li><a href="#" class="facebook">Facebook</a></li>
+        <li><a href="#" class="twitter">Twitter</a></li>
+        <li><a href="#" class="feed">Feed</a></li>
+      </ul>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div id="footer">
+  <div class="container_16">
+    <div class="copyright grid_16">
+      <p class="left">Copyright &copy; 2010, Your Company Here, All Rights Reserved</p>
+      <p class="right">Design by <a href="http://tokokoo.com/">Tokokoo</a> &amp; <a href="http://www.instantshift.com/">instantShift</a></p>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+</h:body>
+</html>

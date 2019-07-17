@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 2, 2019 5:10:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="chi.pojo.Product" table="product" catalog="inventorydb" optimistic-lock="version">
+        <id name="productId" type="string">
+            <column name="productId" length="20" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="suppliers" class="chi.pojo.Suppliers" fetch="select">
+            <column name="supplierId" length="20" />
+        </many-to-one>
+        <property name="productName" type="string">
+            <column name="productName" length="50" />
+        </property>
+        <property name="nafdacNumber" type="java.lang.Integer">
+            <column name="nafdacNumber" />
+        </property>
+        <property name="unitPrice" type="java.lang.Double">
+            <column name="unitPrice" precision="10" />
+        </property>
+        <property name="quantity" type="java.lang.Integer">
+            <column name="quantity" />
+        </property>
+        <property name="totalPrice" type="java.lang.Double">
+            <column name="totalPrice" precision="10" />
+        </property>
+        <property name="manufacturedDate" type="string">
+            <column name="manufacturedDate" length="30" />
+        </property>
+        <property name="expireDate" type="string">
+            <column name="expireDate" length="30" />
+        </property>
+        <property name="createdDate" type="string">
+            <column name="createdDate" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

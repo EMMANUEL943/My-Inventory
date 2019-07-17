@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>REPORT PAGE</title>
+    </h:head>
+    <h:body style="font-family: Arial; background: #fff; font-size: 12px">
+        
+        <h:form>
+            <div >                                            
+                     <p:outputLabel value="USER RECORDS LIST"  style="font-size:30px;  color: navy; margin-left: 700px" />                                            
+            </div>
+                    <br/>                                        
+                    <p:dataTable id="rmTable" binding="#{table}" value="#{userController.getUserDetails()}" var="o" rowKey="#{userController.email}" rows="20" 
+                                 paginator="true" >                                                                                                
+
+                        <p:column  headerText="Serial Number" width="3%">                                                
+                            <h:outputText value="#{table.rowIndex + 1}" />
+                        </p:column>
+
+                        <p:column headerText="E-MAIL" width="9%" filterBy="#{o.email}"  filterMatchMode="contains">                                                
+                            <h:outputText value="#{o.email}" />
+                        </p:column>
+                        <p:column headerText="FIRST NAME" width="9%" filterBy="#{o.firstName}"  filterMatchMode="contains">                                                
+                            <h:outputText value="#{o.firstName}" />
+                        </p:column>
+                        <p:column headerText="LAST NAME" width="9%" filterBy="#{o.lastName}"  filterMatchMode="contains">                                                
+                            <h:outputText value="#{o.lastName}" />
+                        </p:column>
+                        <p:column headerText="PASSWORD" width="9%" filterBy="#{o.passwords}"  filterMatchMode="contains">                                                
+                            <h:outputText value="#{o.passwords}" />
+                        </p:column>
+                        <p:column headerText="PHONE NUMBER" width="9%" filterBy="#{o.phone}"  filterMatchMode="contains">                                                
+                            <h:outputText value="#{o.phone}" />
+                        </p:column>
+                        <p:column headerText="POSITION" width="9%" filterBy="#{o.position}"  filterMatchMode="contains">                                                
+                            <h:outputText value="#{o.position}" />
+                        </p:column>
+                        
+                        <p:column headerText="EFFECTIVE DATE" width="9%" filterBy="#{o.createdDate}"  filterMatchMode="contains">                                                
+                            <h:outputText value="#{o.createdDate}" />
+                        </p:column>
+                   </p:dataTable>                                                    
+        </h:form>
+    </h:body>
+</html>
+

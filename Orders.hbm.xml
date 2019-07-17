@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 2, 2019 5:10:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="chi.pojo.Orders" table="orders" catalog="inventorydb" optimistic-lock="version">
+        <id name="orderId" type="string">
+            <column name="OrderId" length="20" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="customers" class="chi.pojo.Customers" fetch="select">
+            <column name="customerId" length="20" />
+        </many-to-one>
+        <property name="orderName" type="string">
+            <column name="orderName" length="50" />
+        </property>
+        <property name="orderUnitPrice" type="java.lang.Double">
+            <column name="orderUnitPrice" precision="10" />
+        </property>
+        <property name="orderQuantity" type="java.lang.Integer">
+            <column name="orderQuantity" />
+        </property>
+        <property name="orderTotalPrice" type="java.lang.Double">
+            <column name="orderTotalPrice" precision="10" />
+        </property>
+        <property name="createdDate" type="string">
+            <column name="createdDate" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

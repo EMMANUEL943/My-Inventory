@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+<title>The Cake Shop | Login</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" media="all" href="styles/960.css" />
+<link rel="stylesheet" type="text/css" media="all" href="styles/reset.css" />
+<link rel="stylesheet" type="text/css" media="all" href="styles/text.css" />
+<link rel="stylesheet" type="text/css" media="all" href="style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="themes/brown/style.css" />
+</h:head>
+<h:body>
+<div id="warp">
+  <div id="main" class="container_16">
+    <div id="header" class="">
+      <div>
+        <h1><a href="userReg.xhtml">The Cake Shop</a></h1>
+        <h2>Inventory Management</h2>
+      </div>
+      <div id="headright" class="grid_7 prefix_5 omega">
+       
+        
+      </div>
+    </div>
+    <div id="mainMenu" class="grid_16">
+      <ul>
+        <li><a href="users.xhtml">Home</a></li>
+        <li><a href="aboutus.xhtml">About</a></li>
+        <li><a href="contactus.xhtml">Contact</a></li>
+      </ul>
+    </div>
+    <div id="stickySearch" class="grid_16">
+      <div class="stickyNews grid_12 alpha">
+        <p>Valentine’s BrownieCheese Special Package. <em>Free Delivery.</em> <a href="#" class="bookMan">More &raquo;</a></p>
+      </div>
+      
+    </div>
+    <div class="checkout grid_16">
+      <div class="newAccount grid_8 alpha">
+        <h4>Login</h4>
+        
+          
+            <h:form>	
+                 <fieldset>
+            <label for="email2">Email:</label>
+
+                                                    <h:inputText value="#{userLoginController.email}" id="email" required="true" requiredMessage="You must Enter The email-Id" validator="#{userLoginController.validateEmail}" validatorMessage="Invalid email Id" tabindex="1" size="22" class="text" />
+                                                    <h:message for="email" style="color: red" />
+                                                    <br />
+                                                    <label for="password2">Password:</label>
+
+                                                    <h:inputSecret value="#{userLoginController.password}" tabindex="1" size="22" class="text" />
+                                                  <br />
+							<span>
+								<input type="checkbox" class="checkbox"/> 
+								Keep me signed in
+							</span>
+                                                    <h:commandButton action="#{userLoginController.saveLogin}" value="Login" style="color: orange" tabindex="3" class="userLogin"  />
+                 </fieldset>
+                                                </h:form>
+      </div>
+      <div class="loginPage grid_8 omega">
+        
+        
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="richContent2">
+  <div class="container_16">
+    <div class="lastTweet grid_4">
+      <h4>Latest Tweets</h4>
+      <p><a href="#">@someone</a> yes indeed this is one hell of a free css template! <a href="#">Read More</a> <span><em>15 minutes ago</em></span></p>
+      <p><a href="#">@someone</a> yes indeed this is one hell of a free css template! <a href="#">Read More</a> <span><em>15 minutes ago</em></span></p>
+    </div>
+    <div class="corporateInfo grid_4">
+      <h4>Corporate Info</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Term &amp; Conditions</a></li>
+        <li><a href="#">Franchise</a></li>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="storeDelivery grid_4">
+      <h4>Store &amp; Delivery</h4>
+      <ul>
+        <li><a href="#">Store Locator</a></li>
+        <li><a href="#">Delivery Terms &amp; Pricing</a></li>
+        <li><a href="#">Delivery Coverage</a></li>
+        <li><a href="#">Gift Services</a></li>
+        <li><a href="#">Track my order</a></li>
+      </ul>
+    </div>
+    <div class="socialNet grid_4">
+      <h4>Keep in touch</h4>
+      <ul>
+        <li><a href="#" class="facebook">Facebook</a></li>
+        <li><a href="#" class="twitter">Twitter</a></li>
+        <li><a href="#" class="feed">Feed</a></li>
+      </ul>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div id="footer">
+  <div class="container_16">
+    <div class="copyright grid_16">
+      <p class="left">Copyright &copy; 2010, Your Company Here, All Rights Reserved</p>
+      <p class="right">Design by <a href="http://tokokoo.com/">Tokokoo</a> &amp; <a href="http://www.instantshift.com/">instantShift</a></p>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+ </h:body>
+</html>
+   
+

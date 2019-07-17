@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>REPORT PAGE</title>
+    </h:head>
+    <h:body style="font-family: Arial; background: #2b542c; font-size: 12px">
+        
+        <h:form>
+            <div >                                            
+                     <p:outputLabel value="ORDER RECORDS LIST"  style="font-size:30px;  color: navy; margin-left: 700px" />                                            
+            </div>
+                    <br/>                                        
+                    <p:dataTable id="rmTable" binding="#{table}" value="#{orderController.getOrderDetails()}" var="o" rowKey="#{orderController.orderId}" rows="20" 
+                                 paginator="true" >                                                                                                
+
+                        <p:column  headerText="Serial Number" width="3%">                                                
+                            <h:outputText value="#{table.rowIndex + 1}" />
+                        </p:column>
+
+                        <p:column headerText="ORDER ID" width="9%" filterBy="#{o.orderId}"  filterMatchMode="contains">                                                
+                            <h:outputText value="#{o.orderId}" />
+                        </p:column>
+
+                        <p:column headerText="CUSTOMER ID" width="12%" filterBy="#{o.customers.customerId}"  filterMatchMode="contains">                                                
+                            <h:outputText value="#{o.customers.customerId}"/>
+                        </p:column>
+
+                        <p:column headerText="ORDER NAME" width="8%" filterBy="#{o.orderName}"  filterMatchMode="contains">                                                
+                            <h:outputText value="#{o.orderName}" />
+                        </p:column>
+
+                        <p:column headerText="ORDER QUANTITY" width="8%" filterBy="#{o.orderQuantity}"  filterMatchMode="contains">                                                
+                            <h:outputText value="#{o.orderQuantity}" />
+                        </p:column>
+
+                        <p:column headerText="ORDER TOTAL PRICE" width="12%" filterBy="#{o.orderTotalPrice}"  filterMatchMode="contains">                                                
+                            <h:outputText value="#{o.orderTotalPrice}" />
+                        </p:column>
+
+                        <p:column headerText="ORDER UNIT PRICE" filterBy="#{o.orderUnitPrice}" width="9%"  filterMatchMode="contains">                                               
+                            <h:outputText value="#{o.orderUnitPrice}" />
+                        </p:column>
+
+                        <p:column headerText="EFFECTIVE DATE" filterBy="#{o.createdDate}" width="12%" filterMatchMode="contains">                                              
+                            <h:outputText value="#{o.createdDate}" />
+                        </p:column>
+
+                   </p:dataTable>                                                    
+        </h:form>
+    </h:body>
+</html>
+

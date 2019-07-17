@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 2, 2019 5:10:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="chi.pojo.Customers" table="customers" catalog="inventorydb" optimistic-lock="version">
+        <id name="customerId" type="string">
+            <column name="customerId" length="20" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="users" class="chi.pojo.Users" fetch="select">
+            <column name="email" length="30" />
+        </many-to-one>
+        <property name="customerName" type="string">
+            <column name="customerName" length="20" />
+        </property>
+        <property name="customerEmail" type="string">
+            <column name="customerEmail" length="20" />
+        </property>
+        <property name="customerPhone" type="string">
+            <column name="customerPhone" length="30" />
+        </property>
+        <property name="customerAddress" type="string">
+            <column name="customerAddress" length="50" />
+        </property>
+        <property name="createdDate" type="string">
+            <column name="createdDate" length="50" />
+        </property>
+        <set name="orderses" table="orders" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customerId" length="20" />
+            </key>
+            <one-to-many class="chi.pojo.Orders" />
+        </set>
+    </class>
+</hibernate-mapping>

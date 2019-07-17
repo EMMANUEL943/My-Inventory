@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>REPORT PAGE</title>
+    </h:head>
+    <h:body style="font-family: Arial; background: #0083C9; font-size: 12px">
+        
+        <h:form>
+            <div >                                            
+                     <p:outputLabel value="SUPPLIER RECORDS LIST"  style="font-size:30px;  color: navy; margin-left: 700px" />                                            
+            </div>
+                    <br/>                                        
+                    <p:dataTable id="rmTable" binding="#{table}" value="#{supplierController.getSupplierDetails()}" var="o" rowKey="#{supplierController.supplierId}" rows="20" 
+                                 paginator="true" >                                                                                                
+
+                        <p:column  headerText="Serial Number" width="3%">                                                
+                            <h:outputText value="#{table.rowIndex + 1}" />
+                        </p:column>
+
+                        <p:column headerText="SUPPLIER ID" width="9%" filterBy="#{o.supplierId}"  filterMatchMode="contains">                                                
+                            <h:outputText value="#{o.supplierId}" />
+                        </p:column>
+                        <p:column headerText="SUPPLIER NAMES" width="9%" filterBy="#{o.supplierName}"  filterMatchMode="contains">                                                
+                            <h:outputText value="#{o.supplierName}" />
+                        </p:column>
+                        
+                        <p:column headerText="SUPPLIER EMAIL" width="9%" filterBy="#{o.supplierEmail}"  filterMatchMode="contains">                                                
+                            <h:outputText value="#{o.supplierEmail}" />
+                        </p:column>
+                        
+                        <p:column headerText="COMPANY NAME" width="9%" filterBy="#{o.companyName}"  filterMatchMode="contains">                                                
+                            <h:outputText value="#{o.companyName}" />
+                        </p:column>
+                        
+                        <p:column headerText="COMPANY NAME" width="9%" filterBy="#{o.supplierPhone}"  filterMatchMode="contains">                                                
+                            <h:outputText value="#{o.supplierPhone}" />
+                        </p:column>
+                        <p:column headerText="EFFECTIVE DATE" width="9%" filterBy="#{o.createdDate}"  filterMatchMode="contains">                                                
+                            <h:outputText value="#{o.createdDate}" />
+                        </p:column>
+                   </p:dataTable>                                                    
+        </h:form>
+    </h:body>
+</html>
+

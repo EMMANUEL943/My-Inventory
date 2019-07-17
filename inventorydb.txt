@@ -1,0 +1,60 @@
+create database inventorydb;
+use inventorydb
+
+CREATE TABLE Users
+(
+  email VARCHAR(30) PRIMARY KEY,
+  firstName VARCHAR(50),
+  lastName VARCHAR(50),
+  passwords VARCHAR(20),
+  phone  VARCHAR(20),  
+  position VARCHAR(20),  
+  createdDate VARCHAR(50)
+);
+
+CREATE TABLE Suppliers
+(
+supplierId VARCHAR(20) PRIMARY KEY,
+supplierName VARCHAR(50),
+supplierEmail VARCHAR(30),
+supplierPhone VARCHAR(30),
+email VARCHAR(30), index (email), constraint email_employee_fk foreign key(email)  REFERENCES users(email),
+companyName varchar(50),
+createdDate VARCHAR(50)
+);
+
+CREATE TABLE Product
+(
+productId VARCHAR(20) PRIMARY KEY,
+productName VARCHAR(50),
+nafdacNumber int(11),
+unitPrice Double(10,2),
+quantity int,
+totalPrice Double(10,2),
+manufacturedDate VARCHAR(30),
+expireDate VARCHAR(30),
+supplierId VARCHAR(20), index (supplierId), constraint supplierId_product_fk foreign key(supplierId)  REFERENCES Suppliers(supplierId),
+createdDate VARCHAR(50)
+);
+
+CREATE TABLE Customers
+(
+customerId VARCHAR(20) PRIMARY KEY, 
+customerName VARCHAR(20), 
+customerEmail VARCHAR(20),
+customerPhone VARCHAR(30),
+customerAddress VARCHAR(50),
+email VARCHAR(30), index (email), constraint email_empcus_fk foreign key(email)  REFERENCES users(email), 
+createdDate VARCHAR(50)
+);
+
+CREATE TABLE Orders
+(
+OrderId VARCHAR(20) PRIMARY KEY,
+orderName VARCHAR(50),
+orderUnitPrice Double(10,2),
+orderQuantity int,
+orderTotalPrice Double(10,2),
+customerId VARCHAR(20), index (customerId), constraint customers_order_fk foreign key(customerId)  REFERENCES Customers(customerId),
+createdDate VARCHAR(50)
+);

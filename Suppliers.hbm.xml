@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 2, 2019 5:10:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="chi.pojo.Suppliers" table="suppliers" catalog="inventorydb" optimistic-lock="version">
+        <id name="supplierId" type="string">
+            <column name="supplierId" length="20" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="users" class="chi.pojo.Users" fetch="select">
+            <column name="email" length="30" />
+        </many-to-one>
+        <property name="supplierName" type="string">
+            <column name="supplierName" length="50" />
+        </property>
+        <property name="supplierEmail" type="string">
+            <column name="supplierEmail" length="30" />
+        </property>
+        <property name="supplierPhone" type="string">
+            <column name="supplierPhone" length="30" />
+        </property>
+        <property name="companyName" type="string">
+            <column name="companyName" length="50" />
+        </property>
+        <property name="createdDate" type="string">
+            <column name="createdDate" length="50" />
+        </property>
+        <set cascade="all" name="products" table="product" inverse="true" lazy="true" fetch="select" >
+            <key>
+                <column name="supplierId" length="20" />
+            </key>
+            <one-to-many class="chi.pojo.Product" />
+        </set>
+    </class>
+</hibernate-mapping>
